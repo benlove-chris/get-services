@@ -1,0 +1,31 @@
+-- Criação da tabela de usuários
+CREATE TABLE usuarios (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(255) NOT NULL,
+    cpf VARCHAR(14),
+    email VARCHAR(255) NOT NULL UNIQUE,
+    telefone VARCHAR(20) NOT NULL,
+    senha VARCHAR(255) NOT NULL,
+    tipo ENUM('contratante', 'prestador') NOT NULL
+);
+
+-- Criação da tabela de serviços
+CREATE TABLE servicos (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    usuario_id INT NOT NULL,
+    titulo VARCHAR(255) NOT NULL,
+    descricao TEXT NOT NULL,
+    preco DECIMAL(10, 2) NOT NULL,
+    FOREIGN KEY (usuario_id) REFERENCES usuarios(id)
+);
+
+-- Inserção de dados de exemplo para usuários
+INSERT INTO usuarios (nome, cpf, email, telefone, senha, tipo) VALUES
+('João Silva', '012.903.223-09', 'joao@exemplo.com', '11987654321', 'senha123', 'contratante'),
+('Maria Oliveira', '312.903.223-92', 'maria@exemplo.com', '11987654322', 'senha456', 'prestador'),
+('Carlos Souza', '562.903.272-67', 'carlos@exemplo.com', '11987654323', 'senha789', 'prestador');
+
+-- Inserção de dados de exemplo para serviços
+INSERT INTO servicos (usuario_id, titulo, descricao, preco) VALUES
+(2, 'Serviço de Pintura', 'Pintura de paredes interiores e exteriores', 250.00),
+(3, 'Serviço de Jardinagem', 'Manutenção e cuidado de jardins', 150.00);
