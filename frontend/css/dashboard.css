@@ -1,0 +1,124 @@
+body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 800px;
+        }
+        h1 {
+            color: #333;
+            font-size: 24px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .info {
+            margin-bottom: 20px;
+            color: #666;
+        }
+        .services, .users {
+            margin-top: 20px;
+        }
+        .service-item, .user-item {
+            padding: 15px;
+            border: 1px solid #e0e0e0;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            background-color: #fafafa;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.3s;
+        }
+        .service-item:hover, .user-item:hover {
+            background-color: #f1f1f1;
+        }
+        .service-item h3, .user-item h3 {
+            margin-top: 0;
+            margin-bottom: 5px;
+            font-size: 18px;
+            color: #333;
+        }
+        .service-item p, .user-item p {
+            margin: 5px 0;
+            color: #666;
+        }
+        a {
+            text-decoration: none;
+            color: #4caf50;
+            display: inline-block;
+            margin-top: 10px;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .logout {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        .logout a {
+            color: #ff4c4c;
+            font-size: 14px;
+        }
+        .btn-group {
+            display: flex;
+            gap: 10px;
+        }
+        .btn-group a, .btn-group button {
+            padding: 10px;
+            border-radius: 5px;
+            text-decoration: none;
+            color: white;
+            background-color: #4caf50;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .btn-group a:hover, .btn-group button:hover {
+            background-color: #45a049;
+        }
+        .btn-group button.delete {
+            background-color: #ff4c4c;
+        }
+        .btn-group button.delete:hover {
+            background-color: #e04444;
+        }
+        .btn-cadastrar-s {
+            display: block;
+            text-align: center;
+            margin: 20px 0;
+            padding: 10px;
+            border-radius: 5px;
+            background-color: #4caf50;
+            color: white;
+            font-size: 16px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        .btn-cadastrar-s:hover {
+            background-color: #45a049;
+            text-decoration: none;
+        }
+        .descricao-servico {
+            display: none;
+            margin-top: 10px;
+        }
+        .whatsapp-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+            background-color: #25D366;
+        }

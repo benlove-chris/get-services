@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro de Usuário</title>
     <link rel="stylesheet" type="text/css" href="css/cadastro.css">
+    <style>
+        #mensagem_erro, #mensagem_sucesso {
+            display: none;
+        }
+    </style>
 </head>
 <body>
     <h2>Cadastro de Usuário</h2>
@@ -34,9 +39,9 @@
         <a href="login.html">Já possuo cadastro</a>
     </form>
 
-    <div id="mensagem"></div>
+    <div id="mensagem_erro">Erro ao cadastrar usuário.</div>
+    <div id="mensagem_sucesso">Cadastro realizado com sucesso. <a href="login.html">Faça o login</a> </div>
 
-    
     <script type="text/javascript" src="js/cadastro.js"></script>
 </body>
 </html>

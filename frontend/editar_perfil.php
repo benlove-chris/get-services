@@ -154,7 +154,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <button type="submit" class="delete-account-btn" name="delete_account" onclick="return confirm('Tem certeza de que deseja excluir sua conta?')">Excluir Conta</button>
         </form>
         <div class="back">
-            <a href="dashboard.php">Voltar ao Dashboard</a>
+            <a href="dashboard.php">Voltar</a>
         </div>
     </div>
 </body>
