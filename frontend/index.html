@@ -3,26 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Serviços Profissionais</title>
+    <title>GetService - Encontre os Melhores Profissionais</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/estilo.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <header>
-        <div class="container">
-            <h1>Serviços</h1>
-            <div class="login-icon">
-                <a href="login.html"><i class="fas fa-user"></i> Login</a>
+    <header class="bg-dark text-white">
+        <nav class="navbar navbar-expand-lg navbar-dark container">
+            <a class="navbar-brand" href="#">GetService</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#intro">Início</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#services">Serviços</a></li>
+                    <li class="nav-item"><a class="nav-link" href="login.html"><i class="fas fa-user"></i> Login</a></li>
+                </ul>
             </div>
-        </div>
+        </nav>
     </header>
+
+
     <main>
-        <section class="intro">
+        <section id="intro" class="bg- intro text-center text-white d-flex justify-content-center align-items-center">
             <div class="container">
-                <p>Bem-vindo ao nosso site de serviços! Aqui, você pode oferecer os seus serviços e contratar especialistas em diversas áreas, desde encanadores e eletricistas até professores particulares e personal trainers. Conectamos você aos melhores profissionais para atender todas as suas necessidades.</p>
+                <h2 class="display-4">Bem-vindo ao GetService</h2>
+                <p class="lead">Aqui você encontre os melhores profissionais para suas necessidades. Desde encanadores e eletricistas até professores particulares e personal trainers. <a href="cadastrar_usuario.html">Faça sua inscrição</a>  e junte você também aos melhores profissionais do mercado.</p>
+                <a href="#services" class="btn btn-success btn-lg">Veja os Serviços</a>
+            </div>
+        </section>
+
+        <section id="services" class="services py-5">
+            <div class="container">
+                <h2 class="text-center mb-5">Serviços Populares</h2>
+                <div class="row text-center">
+                    <div class="col-md-4 mb-4">
+                        <div class=" service-item p-4 bg-dark text-light rounded">
+                            <i class="fas fa-tools fa-3x mb-3 text-success"></i>
+                            <h3>Encanador</h3>
+                            <p>Profissionais qualificados para resolver qualquer problema de encanamento.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="service-item p-4 bg-dark text-light rounded">
+                            <i class="fas fa-bolt fa-3x mb-3 text-success"></i>
+                            <h3>Eletricista</h3>
+                            <p>Especialistas em instalações elétricas e manutenção.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="service-item p-4 bg-dark text-light rounded">
+                            <i class="fas fa-chalkboard-teacher fa-3x mb-3 text-success"></i>
+                            <h3>Professor Particular</h3>
+                            <p>Aulas particulares em diversas disciplinas para todas as idades.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
+
+    <footer class="bg-dark text-white py-3">
+        <div class="container text-center">
+            <p>&copy; 2024 GetService. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>
-
