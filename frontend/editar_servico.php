@@ -42,6 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Editar Serviço</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -59,6 +60,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             border-radius: 5px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             text-align: center;
+            width: 100%;
+            max-width: 500px;
         }
         h2 {
             color: #333;
@@ -75,16 +78,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             border-radius: 5px;
             margin-bottom: 10px;
         }
-        button {
-            background-color: #007BFF;
-            color: #fff;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
+        .btn-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
-        button:hover {
-            background-color: #0056b3;
+        .btn-container button, .btn-container a {
+            width: 48%;
         }
     </style>
 </head>
@@ -99,8 +99,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <textarea id="descricao" name="descricao" required><?php echo $servico['descricao']; ?></textarea>
             <label for="preco">Preço:</label>
             <input type="text" id="preco" name="preco" value="<?php echo $servico['preco']; ?>" required>
-            <button type="submit">Atualizar</button>
+            <div class="btn-container">
+                <button type="submit" class="btn btn-primary">Atualizar</button>
+                <a href="dashboard.php" class="btn btn-secondary">Voltar</a>
+            </div>
         </form>
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

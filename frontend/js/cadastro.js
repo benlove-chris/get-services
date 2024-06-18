@@ -16,6 +16,7 @@ document.getElementById("cadastroForm").addEventListener("submit", function(even
             mensagemSucesso.style.display = 'block';
             mensagemErro.style.display = 'none';
             this.reset();
+            alert("sucesso;")
         } else {
             mensagemErro.textContent = data;
             mensagemErro.style.display = 'block';

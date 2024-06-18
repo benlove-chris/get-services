@@ -9,17 +9,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $senha = $_POST['senha'];
     $tipo = $_POST['tipo'];
 
-    
+    // Hashing da senha
+    $senha_hashed = password_hash($senha, PASSWORD_DEFAULT);
 
-    // Inserção no banco de dados
-    $sql = "INSERT INTO usuarios (nome, cpf, email, telefone, senha, tipo) VALUES ('$nome', '$cpf', '$email', '$telefone', '$senha', '$tipo')";
-
-    if ($conexao->query($sql) === TRUE) {
-        echo "sucesso";
-    } else {
-        echo "Erro: " . $sql . "<br>" . $conexao->error;
+    // Prepared statement para evitar SQL Injection
+    $stmt = $conexao->prepare("INSERT INTO usuarios (nome, cpf, email, telefone, senha, tipo) VALUES (?, ?, ?, ?, ?, ?)");
+    if (!$stmt) {
+        echo json_encode(["status" => "erro", "mensagem" => "Erro na preparação do statement: " . $conexao->error]);
+        exit();
     }
 
+    $stmt->bind_param("ssssss", $nome, $cpf, $email, $telefone, $senha_hashed, $tipo);
+
+    if ($stmt->execute()) {
+        echo json_encode(["status" => "sucesso"]);
+    } else {
+        echo json_encode(["status" => "erro", "mensagem" => "Erro ao cadastrar usuário: " . $stmt->error]);
+    }
+
+    $stmt->close();
     $conexao->close();
+} else {
+    echo json_encode(["status" => "erro", "mensagem" => "Método de requisição inválido"]);
 }
 ?>
