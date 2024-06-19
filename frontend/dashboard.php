@@ -108,7 +108,7 @@ $usuario_id = isset($_SESSION['id']) ? $_SESSION['id'] : '';
                             <i class="fas fa-user"></i> <?php echo $nome_usuario; ?>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="profileDropdown">
-                            <a class="dropdown-item" href="editar_perfil.php">Gerenciar Perfil</a>
+                            <a class="dropdown-item" href="perfil.php">Gerenciar Perfil</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="../backend/logout.php">Sair</a>
                         </div>
@@ -121,8 +121,16 @@ $usuario_id = isset($_SESSION['id']) ? $_SESSION['id'] : '';
     <div class="container">
         <div class="d-flex justify-content-between mb-4">
             <div>
-                <h1><i class="fas fa-user"></i> Bem-vindo, <?php echo $nome_usuario; ?></h1>
-                <p class="info">Tipo de usuário: <?php echo $tipo_usuario; ?></p>
+                <h1>Bem-vindo, <?php echo $nome_usuario; ?></h1>
+                <?php 
+            if ($tipo_usuario === 'contratante') {
+                echo 'Encontre os melhores profissionais do mercado para resolver o seu problema';
+            } elseif ($tipo_usuario === 'prestador') {
+                echo 'Os cliente estão a sua espera';
+            } else {
+                echo 'Tipo de usuário desconhecido.';
+            }
+            ?>
             </div>
         </div>
 
