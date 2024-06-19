@@ -58,6 +58,11 @@
     
     <script type="text/javascript">
         $(document).ready(function() {
+            $('#cadastroForm input, #cadastroForm select').on('input', function() {
+                $('#mensagem_sucesso').addClass('d-none');
+                $('#mensagem_erro').addClass('d-none');
+            });
+            
             $('#cadastroForm').on('submit', function(e) {
                 e.preventDefault();
                 
@@ -71,7 +76,7 @@
                         try {
                             res = JSON.parse(response);
                         } catch (e) {
-                            $('#mensagem_erro').removeClass('d-none').text('Resposta inválida do servidor.');
+                            $('#mensagem_erro').removeClass('d-none').text('Cadastro não realizado.');
                             $('#mensagem_sucesso').addClass('d-none');
                             return;
                         }
@@ -79,6 +84,7 @@
                         if (res.status === 'sucesso') {
                             $('#mensagem_sucesso').removeClass('d-none');
                             $('#mensagem_erro').addClass('d-none');
+                            $('#cadastroForm')[0].reset();
                         } else {
                             $('#mensagem_erro').removeClass('d-none').text(res.mensagem);
                             $('#mensagem_sucesso').addClass('d-none');
