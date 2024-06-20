@@ -26,35 +26,45 @@ $usuario_id = isset($_SESSION['id']) ? $_SESSION['id'] : '';
     <style>
         body {
             background-color: #f0f2f5;
-            font-family: Arial, sans-serif;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
         }
         .container {
-            background-color: #fff;
+            background-color: #ffffff;
             padding: 30px;
             border-radius: 10px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
             margin-top: 30px;
         }
         h1 {
-            color: #333;
+            color: #444444;
+            font-size: 2.2em;
+            margin-bottom: 20px;
         }
         .info {
-            font-size: 1.2em;
-            color: #555;
+            font-size: 1.1em;
+            color: #666666;
+            margin-bottom: 20px;
         }
         .users h2, .services h2 {
             color: #007bff;
+            font-size: 1.8em;
             margin-bottom: 20px;
+            border-bottom: 2px solid #007bff;
+            padding-bottom: 10px;
         }
         .user-item, .service-item {
             margin-bottom: 20px;
             padding: 20px;
-            border: 1px solid #ddd;
+            border: 1px solid #dddddd;
             border-radius: 10px;
             background-color: #fafafa;
+            transition: box-shadow 0.3s ease-in-out;
+        }
+        .user-item:hover, .service-item:hover {
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
         }
         .descricao-servico {
-            color: #666;
+            color: #666666;
             margin-top: 10px;
             display: none; /* Initially hide descriptions */
         }
@@ -72,18 +82,32 @@ $usuario_id = isset($_SESSION['id']) ? $_SESSION['id'] : '';
             display: block;
             margin-top: 20px;
             text-align: center;
+            background-color: #28a745; /* Verde */
+            color: white;
+            padding: 8px 20px; /* Diminui o padding */
+            border-radius: 5px;
+            transition: background-color 0.3s ease-in-out;
+        }
+        .btn-cadastrar-s:hover {
+            background-color: #218838; /* Verde mais escuro no hover */
+            text-decoration: none;
         }
         .user-item h3, .service-item h3 {
-            color: #333;
+            color: #333333;
+            font-size: 1.5em;
+            margin-bottom: 10px;
         }
         .user-item p, .service-item p {
             margin: 5px 0;
+            color: #555555;
         }
         .user-item p strong, .service-item p strong {
-            color: #007bff;
+            color: #007bff; /* Azul */
         }
         .btn-primary, .btn-danger, .btn-secondary, .btn-success {
-            margin: 0 5px;
+            margin: 0 3px; /* Diminui a margem entre os botões */
+            font-size: 0.9em; /* Diminui o tamanho da fonte dos botões */
+            padding: 5px 10px; /* Diminui o padding dos botões */
         }
         .toggle-description-btn {
             cursor: pointer;
@@ -91,11 +115,36 @@ $usuario_id = isset($_SESSION['id']) ? $_SESSION['id'] : '';
         .btn-primary:hover, .btn-danger:hover, .btn-secondary:hover, .btn-success:hover {
             color: #fff;
         }
+        /* Navbar Customization */
+        .navbar {
+            background-color: #007bff; /* Azul */
+        }
+        .navbar-brand {
+            color: white;
+        }
+        .navbar-brand:hover {
+            color: #ffffff;
+        }
+        .navbar-nav .nav-link {
+            color: white;
+        }
+        .navbar-nav .nav-link:hover {
+            color: #f8f9fa;
+        }
+        .dropdown-menu {
+            background-color: #007bff; /* Azul */
+        }
+        .dropdown-item {
+            color: white;
+        }
+        .dropdown-item:hover {
+            background-color: #0056b3; /* Azul mais escuro */
+        }
     </style>
 </head>
 <body>
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">GetService</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -122,6 +171,7 @@ $usuario_id = isset($_SESSION['id']) ? $_SESSION['id'] : '';
         <div class="d-flex justify-content-between mb-4">
             <div>
                 <h1>Bem-vindo, <?php echo $nome_usuario; ?></h1>
+                <p class="info">
                 <?php 
                 if ($tipo_usuario === 'contratante') {
                     echo 'Encontre os melhores profissionais do mercado para resolver o seu problema';
@@ -131,6 +181,7 @@ $usuario_id = isset($_SESSION['id']) ? $_SESSION['id'] : '';
                     echo 'Tipo de usuário desconhecido.';
                 }
                 ?>
+                </p>
             </div>
         </div>
 
