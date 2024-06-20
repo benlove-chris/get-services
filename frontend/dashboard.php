@@ -136,7 +136,7 @@ $usuario_id = isset($_SESSION['id']) ? $_SESSION['id'] : '';
 
         <?php if ($tipo_usuario == 'contratante') { ?>
             <div class="users">
-                <h2>Prestadores</h2>
+                <h2>Prestadores disponiveis</h2>
                 <?php
                 $sql = "SELECT usuarios.nome AS usuario_nome, usuarios.email, usuarios.telefone, servicos.titulo, servicos.descricao 
                         FROM usuarios 
