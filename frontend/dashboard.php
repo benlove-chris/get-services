@@ -18,8 +18,8 @@ $usuario_id = isset($_SESSION['id']) ? $_SESSION['id'] : '';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo $nome_usuario; ?></title>
-    <!-- Bootstrap 4 CSS -->
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- Custom CSS -->
@@ -98,16 +98,16 @@ $usuario_id = isset($_SESSION['id']) ? $_SESSION['id'] : '';
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">GetService</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ml-auto">
+                <ul class="navbar-nav ms-auto">
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i class="fas fa-user"></i> <?php echo $nome_usuario; ?>
                         </a>
-                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="profileDropdown">
+                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown">
                             <a class="dropdown-item" href="perfil.php">Gerenciar Perfil</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="../backend/logout.php">Sair</a>
@@ -123,20 +123,20 @@ $usuario_id = isset($_SESSION['id']) ? $_SESSION['id'] : '';
             <div>
                 <h1>Bem-vindo, <?php echo $nome_usuario; ?></h1>
                 <?php 
-            if ($tipo_usuario === 'contratante') {
-                echo 'Encontre os melhores profissionais do mercado para resolver o seu problema';
-            } elseif ($tipo_usuario === 'prestador') {
-                echo 'Os cliente estão a sua espera';
-            } else {
-                echo 'Tipo de usuário desconhecido.';
-            }
-            ?>
+                if ($tipo_usuario === 'contratante') {
+                    echo 'Encontre os melhores profissionais do mercado para resolver o seu problema';
+                } elseif ($tipo_usuario === 'prestador') {
+                    echo 'Os clientes estão à sua espera';
+                } else {
+                    echo 'Tipo de usuário desconhecido.';
+                }
+                ?>
             </div>
         </div>
 
         <?php if ($tipo_usuario == 'contratante') { ?>
             <div class="users">
-                <h2>Prestadores disponiveis</h2>
+                <h2>Prestadores disponíveis</h2>
                 <?php
                 $sql = "SELECT usuarios.nome AS usuario_nome, usuarios.email, usuarios.telefone, servicos.titulo, servicos.descricao 
                         FROM usuarios 
@@ -192,23 +192,8 @@ $usuario_id = isset($_SESSION['id']) ? $_SESSION['id'] : '';
         <?php } ?>
     </div>
 
-    <!-- Bootstrap 4 JS -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script type="text/javascript">
-        function toggleDescricao(element) {
-            var descricao = element.closest('.user-item, .service-item').querySelector('.descricao-servico');
-            descricao.style.display = descricao.style.display === 'none' ? 'block' : 'none';
-            var icon = element.querySelector('i');
-            if (descricao.style.display === 'none') {
-                icon.classList.remove('fa-eye-slash');
-                icon.classList.add('fa-eye');
-            } else {
-                icon.classList.remove('fa-eye');
-                icon.classList.add('fa-eye-slash');
-            }
-        }
-    </script>
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="js/dashboard.js"></script>
 </body>
 </html>

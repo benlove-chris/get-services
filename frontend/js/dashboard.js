@@ -1,11 +1,14 @@
-function toggleDescricao(button) {
-            var description = button.parentNode.previousElementSibling.querySelector('.descricao-servico');
-            if (description.style.display === 'none' || description.style.display === '') {
-                description.style.display = 'block';
-                button.textContent = 'Ler menos';
+// Para mostrar ou ocultar a descição do serviço para o contratante
+function toggleDescricao(element) {
+            var descricao = element.closest('.user-item, .service-item').querySelector('.descricao-servico');
+            descricao.style.display = descricao.style.display === 'none' ? 'block' : 'none';
+            var icon = element.querySelector('i');
+            if (descricao.style.display === 'none') {
+                icon.classList.remove('fa-eye-slash');
+                icon.classList.add('fa-eye');
             } else {
-                description.style.display = 'none';
-                button.textContent = 'Ler mais';
+                icon.classList.remove('fa-eye');
+                icon.classList.add('fa-eye-slash');
             }
         }
 
