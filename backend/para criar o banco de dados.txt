@@ -22,13 +22,13 @@ CREATE TABLE servicos (
     FOREIGN KEY (usuario_id) REFERENCES usuarios(id)
 );
 
--- Inserção de dados de exemplo para usuários
+-- Inserção de usuários
 INSERT INTO usuarios (nome, cpf, email, telefone, senha, tipo) VALUES
 ('João Silva', '012.903.223-09', 'joao@exemplo.com', '11987654321', '1234', 'contratante'),
 ('Maria Oliveira', '312.903.223-92', 'maria@exemplo.com', '47987654322', '4567', 'prestador'),
 ('Carlos Souza', '562.903.272-67', 'carlos@exemplo.com', '49987654323', '4321', 'prestador');
 
--- Inserção de dados de exemplo para serviços
+-- Inserção de serviços para usuarios
 INSERT INTO servicos (usuario_id, titulo, descricao, preco) VALUES
 (2, 'Serviço de Pintura', 'Pintura de paredes interiores e exteriores', 250.00),
 (3, 'Serviço de Jardinagem', 'Manutenção e cuidado de jardins', 150.00);
