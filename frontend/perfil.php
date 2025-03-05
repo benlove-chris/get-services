@@ -130,7 +130,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </form>
 
         <div class="text-center mt-4">
-            <a href="dashboard.php" class="btn btn-link">Voltar</a>
+            <a href="dashboard.php" class="btn btn-light">Voltar</a>
         </div>
     </div>
 
