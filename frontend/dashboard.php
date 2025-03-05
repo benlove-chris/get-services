@@ -216,7 +216,7 @@ $usuario_id = isset($_SESSION['id']) ? $_SESSION['id'] : '';
             </div>
         <?php } elseif ($tipo_usuario == 'prestador') { ?>
             <div class="services">
-                <h2>Seus Serviços</h2>
+                <h2>Meus serviços</h2>
                 <?php
                 $sql = "SELECT id, titulo, descricao, preco FROM servicos WHERE usuario_id = '$usuario_id'";
                 $resultado = $conexao->query($sql);
